@@ -1,0 +1,12 @@
+/cookies/
+backups/
+influencer_data/
+twscrape/
+accounts.db
+accounts.txt
+outputs/
+
+# Ignore all python cache files
+__pycache__/
+*.pyc
+*.pyo
