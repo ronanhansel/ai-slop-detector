@@ -7,11 +7,12 @@ from process_posts import (
     count_emojis, count_text_emojis, count_caps_locked_words,
     count_unicode_chars, contains_media_link, contains_link,
     count_tagged_people, tagged_grok, used_slang_or_abbreviation,
-    clean_text_for_posts
+    clean_text_for_posts_Empath, clean_text_for_posts_LSA
 )
 
 # Global counter for unique comment IDs across all files
 global_comment_id = 0
+
 
 def process_comments_recursive(
     comment: Dict,
@@ -57,10 +58,11 @@ def process_comments_recursive(
     did_tag_grok = tagged_grok(original_content)
     
     # Clean content
-    cleaned_content = clean_text_for_posts(original_content, author=username)
+    cleaned_content_LSA = clean_text_for_posts_LSA(original_content, author=username)
+    clean_content_Empath = clean_text_for_posts_Empath(original_content, author=username)
     
     # Check for slang usage
-    used_slang = used_slang_or_abbreviation(original_content, cleaned_content)
+    used_slang = used_slang_or_abbreviation(original_content, cleaned_content_LSA)
     
     # Create comment row
     comment_row = {
@@ -69,7 +71,8 @@ def process_comments_recursive(
         "parent_id": parent_id if parent_id else "",
         "post_id": post_id,
         "comment_content": original_content,
-        "cleaned_content": cleaned_content,
+        "cleaned_content_LSA": cleaned_content_LSA,
+        "cleaned_content_LIWC": clean_content_Empath,
         "num_emojis": num_emojis,
         "num_text_emojis": num_text_emojis,
         "num_caps_words": num_caps_words,
@@ -161,7 +164,7 @@ def process_all_comments(input_dir: str, output_csv_path: str) -> None:
     
     fieldnames = [
         "commenter_id", "comment_id", "parent_id", "post_id",
-        "comment_content", "cleaned_content", "num_emojis",
+        "comment_content", "cleaned_content_LSA", "cleaned_content_LIWC", "num_emojis",
         "num_text_emojis", "num_caps_words", "num_unicode_chars",
         "contains_media", "contains_link", "num_tagged_people",
         "tagged_grok", "used_slang"
@@ -179,6 +182,6 @@ def process_all_comments(input_dir: str, output_csv_path: str) -> None:
 if __name__ == "__main__":
     # Example usage
     input_directory = "influencer_data"
-    output_csv = "outputs/processed_comments.csv"
+    output_csv = "outputs\processed.csv"
     
     process_all_comments(input_directory, output_csv)
