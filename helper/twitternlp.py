@@ -55,6 +55,23 @@ def offensive_language_detection(text):
     result = model.offensive(text, return_probability=True)
     return result
 
+def execute(text) -> dict:
+    """
+    Executes all analyses on the given text and returns the results.
+
+    Args:
+        text (str): The text to analyze.
+    Returns:
+        dict: A dictionary containing results from all analyses.
+    """
+    results = {
+        'sentiment': sentiment_analysis(text),
+        'irony': irony_detection(text),
+        'hate_speech': hatespeech_detection(text),
+        'offensive_language': offensive_language_detection(text)
+    }
+    return results
+
 if __name__ == "__main__":
     sample_text = "FAFO. If you threaten or lay hands on our law enforcement officers we will hunt you down and you will find out, really quick. We’ll see you cowards soon."
     sentiment_result = sentiment_analysis(sample_text)

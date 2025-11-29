@@ -129,6 +129,9 @@ def process_all_json_files(data_dir, output_pickle_path):
 if __name__ == '__main__':
     import sys
     
+    output_dir = Path('../data')
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     # Default paths
     data_dir = sys.argv[1] if len(sys.argv) > 1 else '../data-ai-slop-detector'
     output_file = sys.argv[2] if len(sys.argv) > 2 else '../data/all_tweets.pkl'
