@@ -7,8 +7,6 @@ from unidecode import unidecode
 from typing import Dict, List, Tuple
 import contractions
 
-
-
 def count_emojis(text: str) -> int:
     """Count Unicode emojis in text."""
     return emoji.emoji_count(text)
@@ -735,9 +733,9 @@ def process_all_posts_LSA(input_dir: str, output_csv_path: str) -> None:
 
 if __name__ == "__main__":
     # Example usage
-    input_directory = "influencer_data"
-    output_csv_Empath = "outputs/processed_posts_Empath.csv"
-    output_csv_LSA = "outputs/processed_posts_LSA.csv"
+    input_directory = "data_preparation/influencer_data"
+    output_csv_Empath = "data_preparation/outputs/version_251130/processed_posts_Empath.csv"
+    output_csv_LSA = "data_preparation/outputs/version_251130/processed_posts_LSA.csv"
     
     process_all_posts_Empath(input_directory, output_csv_Empath)
     process_all_posts_LSA(input_directory, output_csv_LSA)

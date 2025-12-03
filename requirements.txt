@@ -10,3 +10,5 @@ sentencepiece
 scikit-learn
 accelerate>=0.26.0
 tweetnlp
+contractions
+nltk

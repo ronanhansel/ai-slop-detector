@@ -181,7 +181,7 @@ def process_all_comments(input_dir: str, output_csv_path: str) -> None:
 
 if __name__ == "__main__":
     # Example usage
-    input_directory = "influencer_data"
-    output_csv = "outputs\processed.csv"
+    input_directory = "data_preparation/version_251130/influencer_data"
+    output_csv = "data_preparation/version_251130/outputs/processed.csv"
     
     process_all_comments(input_directory, output_csv)
