@@ -72,7 +72,7 @@ def process_comments_recursive(
         "post_id": post_id,
         "comment_content": original_content,
         "cleaned_content_LSA": cleaned_content_LSA,
-        "cleaned_content_LIWC": clean_content_Empath,
+        "cleaned_content_Empath": clean_content_Empath,
         "num_emojis": num_emojis,
         "num_text_emojis": num_text_emojis,
         "num_caps_words": num_caps_words,
@@ -164,7 +164,7 @@ def process_all_comments(input_dir: str, output_csv_path: str) -> None:
     
     fieldnames = [
         "commenter_id", "comment_id", "parent_id", "post_id",
-        "comment_content", "cleaned_content_LSA", "cleaned_content_LIWC", "num_emojis",
+        "comment_content", "cleaned_content_LSA", "cleaned_content_Empath", "num_emojis",
         "num_text_emojis", "num_caps_words", "num_unicode_chars",
         "contains_media", "contains_link", "num_tagged_people",
         "tagged_grok", "used_slang"
@@ -181,7 +181,6 @@ def process_all_comments(input_dir: str, output_csv_path: str) -> None:
 
 if __name__ == "__main__":
     # Example usage
-    input_directory = "data_preparation/version_251130/influencer_data"
-    output_csv = "data_preparation/version_251130/outputs/processed.csv"
-    
+    input_directory = r"E:\Project_DS\ai-slop-detector\data_preparation\influencer_data"
+    output_csv = "data_preparation/outputs/processed_comments.csv"
     process_all_comments(input_directory, output_csv)

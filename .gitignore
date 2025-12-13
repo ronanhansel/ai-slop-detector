@@ -3,3 +3,4 @@
 .amlignore.*
 data-*/
 venv/
+.ipynb_aml_checkpoints/
