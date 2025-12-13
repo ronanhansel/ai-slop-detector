@@ -1,0 +1,4 @@
+row_index,comment_id,column,original_text,reason
+83208,83209,cleaned_content_LSA,intolerance demanding tolerance--gt very well put i like your wording,Contains punctuation/special chars/apostrophes
+100415,100416,cleaned_content_LSA,when you make rational conversation impossible you make irrational conversation inevitable-tag,Contains punctuation/special chars/apostrophes
+117680,117681,cleaned_content_LSA,spot on--facts facts my opinions my own i stand them,Contains punctuation/special chars/apostrophes
