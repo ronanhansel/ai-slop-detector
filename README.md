@@ -18,14 +18,15 @@ sudo apt install -y texlive-latex-base texlive-latex-extra texlive-fonts-recomme
 ## Download existing external evaluations
 
 ```bash
-hf download ronanhansel/data-reeval-multi \
+hf download ronanhansel/data-ai-slop-detector \
     --local-dir . \
     --repo-type dataset
 ```
 
 ## Using SOTA detector
+
 Step 1: Select one user, filter all posts from that user with: at least 40 characters, no label.
 Step 2: Select at most 20 random posts, perform SOTA detection sequentially.
-    Step 2.1: Fill in `ai_confidence` as a separate column.
-    Step 2.2: 10 posts are detected as human/ai, label all the remaining posts from the same user as human/ai.
+Step 2.1: Fill in `ai_confidence` as a separate column.
+Step 2.2: 10 posts are detected as human/ai, label all the remaining posts from the same user as human/ai.
 Step 3: Select next user and perform from Step 1 to 2 again until no post left.
